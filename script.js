@@ -29,11 +29,12 @@ function operate(num1, num2, operator) {
     return result
 }
 
-const numberButtons = document.querySelectorAll("button")
+const buttons = Array.from(document.querySelectorAll("button"))
 const display = document.getElementById("display")
-for (let i = 0; i < numberButtons.length; i++) {
-    numberButtons[i].addEventListener("click", function (button) {
-        number = button.target.textContent
+
+buttons.map((button) => {
+    button.addEventListener("click", (e) => {
+        number = e.target.textContent
         display.value += number
     })
-}
+})
