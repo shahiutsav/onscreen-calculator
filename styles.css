@@ -36,6 +36,7 @@ input {
     width: 80px;
     border-radius: 20px;
     transition: all 0.8s ease;
+    margin: 5px;
 }
 
 .operation {
@@ -46,6 +47,12 @@ input {
 .result {
     background-color: #ff6b6b;
     color: white;
+}
+
+.button-wide {
+    width: auto;
+    grid-column: span 2;
+    border-radius: 20px;
 }
 
 .numbers:hover,
