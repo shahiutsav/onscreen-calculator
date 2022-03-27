@@ -29,8 +29,12 @@ function operate(num1, num2, operator) {
     return result
 }
 
-console.log(operate(3, 2, "*"))
-console.log(operate(3, 2, "+"))
-console.log(operate(3, 2, "-"))
-console.log(operate(3, 2, "/"))
-console.log(operate(3, 2, "$"))
+const numberButtons = document.querySelectorAll(".numbers")
+const display = document.getElementById("display")
+for (let i = 0; i < numberButtons.length; i++) {
+    numberButtons[i].addEventListener("click", function (button) {
+        console.log(button.target.textContent)
+        number = button.target.textContent
+        display.value = number
+    })
+}
