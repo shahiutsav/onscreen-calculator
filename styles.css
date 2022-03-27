@@ -2,37 +2,47 @@ body {
     background-color: #2f3640;
 }
 
+.buttons {
+    display: grid;
+    width: fit-content;
+    margin: auto;
+    grid-template-columns: auto auto auto auto;
+}
+
 .numbers,
 .operation,
 .result {
     font-size: 18px;
     color: #c8d6e5;
-    background-color: #222f3e;
+    background-color: transparent;
     border: 2px solid transparent;
     height: 80px;
     width: 80px;
-    border-radius: 50%;
-    transition: border-color 0.8s ease;
-}
-
-.operation,
-.result {
-    font-weight: bold;
-    font-size: 25px;
+    border-radius: 20px;
+    transition: all 0.8s ease;
 }
 
 .operation {
     color: #ff6b6b;
+    border-radius: 50%;
 }
 
 .result {
     background-color: #ff6b6b;
-    color: #222f3e;
+    color: white;
 }
 
 .numbers:hover,
 .operation:hover,
 .result:hover {
-    transition: border-color 0.1s ease;
+    cursor: pointer;
+    transition: all 0.07s ease;
+    background-color: #fff;
+    color: #2f3640;
     border-color: #c8d6e5;
+}
+
+.operation:hover {
+    background-color: #ff6b6b;
+    color: white;
 }
