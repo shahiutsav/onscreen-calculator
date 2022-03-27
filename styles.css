@@ -52,9 +52,10 @@ input {
 .operation:hover,
 .result:hover {
     cursor: pointer;
-    transition: all 0.07s ease;
+    transition: all 0.7s ease;
     background-color: #fff;
     color: #2f3640;
+    transform: translateY(-5px);
     border-color: #c8d6e5;
 }
 
