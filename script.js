@@ -34,7 +34,10 @@ const display = document.getElementById("display")
 
 buttons.map((button) => {
     button.addEventListener("click", (e) => {
-        number = e.target.textContent
+        if (display.value === "0") {
+            display.value = ""
+        }
+        number = e.target.innerText
         display.value += number
     })
 })
