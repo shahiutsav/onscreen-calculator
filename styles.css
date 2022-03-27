@@ -1,0 +1,38 @@
+body {
+    background-color: #2f3640;
+}
+
+.numbers,
+.operation,
+.result {
+    font-size: 18px;
+    color: #c8d6e5;
+    background-color: #222f3e;
+    border: 2px solid transparent;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    transition: border-color 0.8s ease;
+}
+
+.operation,
+.result {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.operation {
+    color: #ff6b6b;
+}
+
+.result {
+    background-color: #ff6b6b;
+    color: #222f3e;
+}
+
+.numbers:hover,
+.operation:hover,
+.result:hover {
+    transition: border-color 0.1s ease;
+    border-color: #c8d6e5;
+}
