@@ -1,77 +1,104 @@
 * {
-    font-family: "Titillium Web", sans-serif;
+    font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: #2f3640;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
+}
+
+.calculator-grid {
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 80px);
 }
 
 .display {
-    margin-top: 50px;
-    text-align: end;
-    font-size: 50px;
-    width: 320px;
-    height: 50px;
-    background-color: transparent;
-    border-style: none;
-    border-bottom: 2px solid #ff6b6b;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
     padding: 10px;
+    border-bottom: 2px solid #ff6348;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.current-operand {
+    font-size: 2.5em;
     color: white;
 }
 
-.buttons {
-    display: grid;
-    width: fit-content;
-    margin: auto;
-    grid-template-columns: auto auto auto auto;
+.previous-operand {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.numbers,
-.operation,
-.result {
+button {
+    margin: auto;
     font-size: 18px;
     color: #c8d6e5;
     background-color: transparent;
     border: 2px solid transparent;
-    height: 80px;
-    width: 80px;
-    border-radius: 20px;
+    border-radius: 10px;
+    height: 70px;
+    width: 70px;
     transition: all 0.8s ease;
-    margin: 5px;
+}
+
+.all-clear {
+    color: #70a1ff;
+}
+
+.backspace {
+    color: #ff4757;
 }
 
 .operation {
-    color: #ff6b6b;
+    color: #ff6348;
     border-radius: 50%;
 }
 
-.result {
-    background-color: #ff6b6b;
+.equals {
+    background-color: #ff6348;
     color: white;
 }
 
 .button-wide {
-    width: auto;
+    width: 90%;
     grid-column: span 2;
     border-radius: 20px;
 }
 
-.numbers:hover,
-.operation:hover,
-.result:hover {
+button:hover {
     cursor: pointer;
-    transition: all 0.7s ease;
+    transition: all 0.2s ease;
     background-color: #fff;
     color: #2f3640;
     transform: translateY(-5px);
-    border-color: #c8d6e5;
+}
+
+.all-clear:hover {
+    background-color: #70a1ff;
+    color: white;
+}
+
+.backspace:hover {
+    background-color: #ff4757;
+    color: white;
 }
 
 .operation:hover {
-    background-color: #ff6b6b;
+    background-color: #ff6348;
     color: white;
+}
+
+.equals:hover {
+    background-color: #f1f2f6;
 }
