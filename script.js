@@ -29,15 +29,15 @@ function operate(num1, num2, operator) {
     return result
 }
 
-const buttons = Array.from(document.querySelectorAll("button"))
-const display = document.getElementById("display")
+const numberButtons = document.querySelectorAll("[data-number]")
+const currentOperandTextElement = document.querySelector(
+    "[data-current-operand]"
+)
 
-buttons.map((button) => {
+numberButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        if (display.value === "0") {
-            display.value = ""
-        }
-        number = e.target.innerText
-        display.value += number
+        currentOperandTextElement.textContent =
+            currentOperandTextElement.textContent.toString() +
+            button.textContent.toString()
     })
 })

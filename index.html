@@ -9,7 +9,10 @@
         <title>Onscreen Calculator</title>
     </head>
     <body>
-        <input type="text" name="" id="display" value="0">
+        <div class="display">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operan"></div>
+        </div>
         <div class="buttons">
             <button class = "operation" data-all-clear>AC</button>
             <button class = "operation button-wide" data-delete>&lt;</button> <!-- backspace sign -->
