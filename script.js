@@ -51,8 +51,13 @@ numberButtons.forEach((button) => {
 
 operationButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        previousOperandTextElement.innerText =
-            currentOperandTextElement.innerText
+        if (previousOperandTextElement.innerText !== "") return
+        previousOperandTextElement.innerText = `${currentOperandTextElement.innerText} ${button.innerText}`
         currentOperandTextElement.textContent = ""
     })
+})
+
+allClearButton.addEventListener("click", () => {
+    previousOperandTextElement.innerText = ""
+    currentOperandTextElement.innerText = ""
 })
