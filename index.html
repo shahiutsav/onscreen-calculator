@@ -4,9 +4,24 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./styles.css" />
         <script src="./script.js" defer></script>
         <title>Onscreen Calculator</title>
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <div class="display">
@@ -14,24 +29,26 @@
             <div data-current-operand class="current-operan"></div>
         </div>
         <div class="buttons">
-            <button class = "operation" data-all-clear>AC</button>
-            <button class = "operation button-wide" data-delete>&lt;</button> <!-- backspace sign -->
-            <button class = "operation" data-operation>x</button>
-            <button class = "numbers" data-number>7</button>
-            <button class = "numbers" data-number>8</button>
-            <button class = "numbers" data-number>9</button>
-            <button class = "operation" data-operation>&#247</button> <!-- divide sign -->
-            <button class = "numbers" data-number="">4</button>
-            <button class = "numbers" data-number="">5</button>
-            <button class = "numbers" data-number="">6</button>
-            <button class = "operation" data-operation>-</button>
-            <button class = "numbers" data-number="">1</button>
-            <button class = "numbers" data-number="">2</button>
-            <button class = "numbers" data-number="">3</button>
-            <button class = "operation" data-operation>+</button>
-            <button class = "numbers " data-number="">0</button>
-            <button class = "numbers" data-number="">.</button>
-            <button class = "result button-wide">&#61</button> <!-- is equal to sign -->
+            <button class="operation button-wide" data-all-clear>AC</button>
+            <button class="operation" data-delete>&#9003;</button>
+            <!-- backspace sign -->
+            <button class="operation" data-operation>x</button>
+            <button class="numbers" data-number>7</button>
+            <button class="numbers" data-number>8</button>
+            <button class="numbers" data-number>9</button>
+            <button class="operation" data-operation>÷</button>
+            <button class="numbers" data-number="">4</button>
+            <button class="numbers" data-number="">5</button>
+            <button class="numbers" data-number="">6</button>
+            <button class="operation" data-operation>-</button>
+            <button class="numbers" data-number="">1</button>
+            <button class="numbers" data-number="">2</button>
+            <button class="numbers" data-number="">3</button>
+            <button class="operation" data-operation>+</button>
+            <button class="numbers" data-number="">0</button>
+            <button class="numbers" data-number="">.</button>
+            <button class="result button-wide">&equals;</button>
+            <!-- is equal to sign -->
         </div>
     </body>
 </html>
