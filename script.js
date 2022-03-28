@@ -1,3 +1,15 @@
+const numberButtons = document.querySelectorAll("[data-number]") // fetch all number buttons
+const operationButtons = document.querySelectorAll("[data-operation") // fetch all operation buttons
+const allClearButton = document.querySelector("[data-all-clear]") // fetch all-clear button
+const deleteButton = document.querySelector("[data-delete]") // fetch delete button
+const equalsButton = document.querySelector("[data-equals]") // fetch equals button
+const currentOperandTextElement = document.querySelector(
+    "[data-current-operand]"
+) // fetch current operand text  element
+const previousOperandTextElement = document.querySelector(
+    "[data-previous-operand]"
+) // fetch previous operand text element
+
 const add = function () {
     return arguments[0] + arguments[1]
 }
@@ -29,30 +41,18 @@ function operate(num1, num2, operator) {
     return result
 }
 
-const numberButtons = document.querySelectorAll("[data-number]") // fetch all number buttons
-const operationButtons = document.querySelectorAll("[data-operation") // fetch all operation buttons
-const allClearButton = document.querySelector("[data-all-clear]") // fetch all-clear button
-const deleteButton = document.querySelector("[data-delete]") // fetch delete button
-const equalsButton = document.querySelector("[data-equals]") // fetch equals button
-const currentOperandTextElement = document.querySelector(
-    "[data-current-operand]"
-) // fetch current operand text  element
-const previousOperandTextElement = document.querySelector(
-    "[data-previous-operand]"
-) // fetch previous operand text element
-
 numberButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-        currentOperandTextElement.textContent =
-            currentOperandTextElement.textContent.toString() +
-            button.textContent.toString()
+    button.addEventListener("click", () => {
+        currentOperandTextElement.innerText =
+            currentOperandTextElement.innerText.toString() +
+            button.innerText.toString()
     })
 })
 
 operationButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        previousOperandTextElement.textContent =
-            currentOperandTextElement.textContent
+        previousOperandTextElement.innerText =
+            currentOperandTextElement.innerText
         currentOperandTextElement.textContent = ""
     })
 })
