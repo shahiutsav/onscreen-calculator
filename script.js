@@ -8,7 +8,7 @@ class Calculator {
     clear() {
         this.currentOperand = "" // Initialize currentOperand as empty string
         this.previousOperand = "" // Initialize previousOperand as empty string
-        this.operand = undefined // Initialize operand as undefined
+        this.operation = undefined // Initialize operation as undefined
     }
 
     appendNumber(number) {
@@ -16,8 +16,15 @@ class Calculator {
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
 
+    chooseOperation(operation) {
+        this.operation = operation
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ""
+    }
+
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand
+        this.previousOperandTextElement.innerText = this.previousOperand
     }
 }
 
@@ -78,8 +85,7 @@ numberButtons.forEach((button) => {
 
 operationButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (previousOperandTextElement.innerText !== "") return
-        previousOperandTextElement.innerText = `${currentOperandTextElement.innerText} ${button.innerText}`
-        currentOperandTextElement.textContent = ""
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
     })
 })
