@@ -6,7 +6,7 @@ class Calculator {
     }
 
     clear() {
-        this.currentOperand = "" // Initialize currentOperand as empty string
+        this.currentOperand = "0" // Initialize currentOperand as empty string
         this.previousOperand = "" // Initialize previousOperand as empty string
         this.operation = undefined // Initialize operation as undefined
     }
@@ -51,7 +51,7 @@ class Calculator {
             default:
                 return
         }
-        this.currentOperand = computation.toFixed(4)
+        this.currentOperand = computation
         this.previousOperand = ""
         this.operation = undefined
     }
