@@ -36,16 +36,16 @@ class Calculator {
         const current = parseFloat(this.currentOperand)
         switch (this.operation) {
             case "+":
-                computation = add(prev, current)
+                computation = prev + current
                 break
             case "-":
-                computation = subtract(prev, current)
+                computation = prev - current
                 break
             case "×":
-                computation = multiply(prev, current)
+                computation = prev * current
                 break
             case "÷":
-                computation = divide(prev, current)
+                computation = prev / current
                 break
             default:
                 return
@@ -77,22 +77,6 @@ const calculator = new Calculator(
     previousOperandTextElement,
     currentOperandTextElement
 )
-
-const add = function () {
-    return arguments[0] + arguments[1]
-}
-
-const subtract = function () {
-    return arguments[0] - arguments[1]
-}
-
-const multiply = function () {
-    return arguments[0] * arguments[1]
-}
-
-const divide = function () {
-    return arguments[0] / arguments[1]
-}
 
 allClearButton.addEventListener("click", () => {
     calculator.clear()
