@@ -136,13 +136,30 @@ equalsButton.addEventListener("click", () => {
 })
 
 window.addEventListener("keydown", (e) => {
+    console.log(e.key)
     let keyName = e.key
     if (keyName === "Backspace") {
         calculator.delete()
         calculator.updateDisplay()
+    } else if (
+        keyName === "*" ||
+        keyName === "/" ||
+        keyName === "+" ||
+        keyName === "-"
+    ) {
+        if (keyName === "*") {
+            keyName = "×"
+        }
+        if (keyName === "/") {
+            keyName = "÷"
+        }
+        calculator.chooseOperation(keyName)
+        calculator.updateDisplay()
+    } else if (keyName === "Enter") {
+        calculator.compute()
+        calculator.updateDisplay()
     } else {
-        if (isNaN(keyName)) return
-        console.log(typeof keyName)
+        if (isNaN(keyName) && keyName != ".") return
         calculator.appendNumber(keyName)
         calculator.updateDisplay()
     }
