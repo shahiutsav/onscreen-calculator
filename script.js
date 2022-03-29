@@ -2,13 +2,18 @@ class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement
         this.currentOperandTextElement = currentOperandTextElement
-        // this.clear()
+        this.clear() // initialize variables everytime a new session is started
+    }
+
+    clear() {
+        this.currentOperand = "" // Initialize currentOperand as empty string
+        this.previousOperand = "" // Initialize previousOperand as empty string
+        this.operand = undefined // Initialize operand as undefined
     }
 
     appendNumber(number) {
-        this.currentOperand =
-            this.currentOperandTextElement.innerText.toString() +
-            number.toString()
+        if (number === "." && this.currentOperand.includes(".")) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
     }
 
     updateDisplay() {
