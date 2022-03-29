@@ -34,7 +34,22 @@ class Calculator {
         let computation
         const prev = parseFloat(this.previousOperand)
         const current = parseFloat(this.currentOperand)
-        computation = operate(prev, current, this.operation)
+        switch (this.operation) {
+            case "+":
+                computation = add(prev, current)
+                break
+            case "-":
+                computation = subtract(prev, current)
+                break
+            case "×":
+                computation = multiply(prev, current)
+                break
+            case "÷":
+                computation = divide(prev, current)
+                break
+            default:
+                return
+        }
         this.currentOperand = computation
         this.previousOperand = ""
         this.operation = undefined
@@ -77,19 +92,6 @@ const multiply = function () {
 
 const divide = function () {
     return arguments[0] / arguments[1]
-}
-
-function operate(num1, num2, operator) {
-    if (operator === "×") {
-        result = multiply(num1, num2)
-    } else if (operator === "+") {
-        result = add(num1, num2)
-    } else if (operator === "-") {
-        result = subtract(num1, num2)
-    } else if (operator === "÷") {
-        result = divide(num1, num2)
-    }
-    return result
 }
 
 allClearButton.addEventListener("click", () => {
