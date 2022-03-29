@@ -134,3 +134,16 @@ equalsButton.addEventListener("click", () => {
     calculator.compute()
     calculator.updateDisplay()
 })
+
+window.addEventListener("keydown", (e) => {
+    let keyName = e.key
+    if (keyName === "Backspace") {
+        calculator.delete()
+        calculator.updateDisplay()
+    } else {
+        if (isNaN(keyName)) return
+        console.log(typeof keyName)
+        calculator.appendNumber(keyName)
+        calculator.updateDisplay()
+    }
+})
