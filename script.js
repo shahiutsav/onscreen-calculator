@@ -11,6 +11,10 @@ class Calculator {
         this.operation = undefined // Initialize operation as undefined
     }
 
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+    }
+
     appendNumber(number) {
         if (number === "." && this.currentOperand.includes(".")) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
@@ -90,6 +94,11 @@ function operate(num1, num2, operator) {
 
 allClearButton.addEventListener("click", () => {
     calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener("click", () => {
+    calculator.delete()
     calculator.updateDisplay()
 })
 
