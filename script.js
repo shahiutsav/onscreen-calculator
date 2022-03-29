@@ -1,3 +1,21 @@
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+        // this.clear()
+    }
+
+    appendNumber(number) {
+        this.currentOperand =
+            this.currentOperandTextElement.innerText.toString() +
+            number.toString()
+    }
+
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand
+    }
+}
+
 const numberButtons = document.querySelectorAll("[data-number]") // fetch all number buttons
 const operationButtons = document.querySelectorAll("[data-operation") // fetch all operation buttons
 const allClearButton = document.querySelector("[data-all-clear]") // fetch all-clear button
@@ -9,6 +27,11 @@ const currentOperandTextElement = document.querySelector(
 const previousOperandTextElement = document.querySelector(
     "[data-previous-operand]"
 ) // fetch previous operand text element
+
+const calculator = new Calculator(
+    previousOperandTextElement,
+    currentOperandTextElement
+)
 
 const add = function () {
     return arguments[0] + arguments[1]
@@ -43,9 +66,8 @@ function operate(num1, num2, operator) {
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        currentOperandTextElement.innerText =
-            currentOperandTextElement.innerText.toString() +
-            button.innerText.toString()
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
     })
 })
 
@@ -55,9 +77,4 @@ operationButtons.forEach((button) => {
         previousOperandTextElement.innerText = `${currentOperandTextElement.innerText} ${button.innerText}`
         currentOperandTextElement.textContent = ""
     })
-})
-
-allClearButton.addEventListener("click", () => {
-    previousOperandTextElement.innerText = ""
-    currentOperandTextElement.innerText = ""
 })
