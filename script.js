@@ -22,6 +22,16 @@ class Calculator {
         this.currentOperand = ""
     }
 
+    compute() {
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        computation = operate(prev, current, this.operation)
+        this.currentOperand = computation
+        this.previousOperand = ""
+        this.operation = undefined
+    }
+
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand
         this.previousOperandTextElement.innerText = this.previousOperand
@@ -62,19 +72,22 @@ const divide = function () {
 }
 
 function operate(num1, num2, operator) {
-    if (operator === "*") {
+    if (operator === "×") {
         result = multiply(num1, num2)
     } else if (operator === "+") {
         result = add(num1, num2)
     } else if (operator === "-") {
         result = subtract(num1, num2)
-    } else if (operator === "/") {
+    } else if (operator === "÷") {
         result = divide(num1, num2)
-    } else {
-        return "Enter a valid operator!"
     }
     return result
 }
+
+allClearButton.addEventListener("click", () => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -88,4 +101,9 @@ operationButtons.forEach((button) => {
         calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
     })
+})
+
+equalsButton.addEventListener("click", () => {
+    calculator.compute()
+    calculator.updateDisplay()
 })
