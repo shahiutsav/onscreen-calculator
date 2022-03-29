@@ -9,7 +9,7 @@ body {
 }
 
 .calculator-grid {
-    min-height: 100vh;
+    min-height: 90vh;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -101,4 +101,21 @@ button:hover {
 
 .equals:hover {
     background-color: #f1f2f6;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    background-color: #ff6348;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer img {
+    width: 20px;
 }
