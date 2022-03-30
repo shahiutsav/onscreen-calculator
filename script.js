@@ -89,6 +89,7 @@ class Calculator {
     }
 }
 
+const buttons = document.querySelectorAll("button") // fetch all buttons
 const numberButtons = document.querySelectorAll("[data-number]") // fetch all number buttons
 const operationButtons = document.querySelectorAll("[data-operation") // fetch all operation buttons
 const allClearButton = document.querySelector("[data-all-clear]") // fetch all-clear button
@@ -105,6 +106,21 @@ const calculator = new Calculator(
     previousOperandTextElement,
     currentOperandTextElement
 )
+
+buttons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+        let x = e.clientX - e.target.offsetLeft
+        let y = e.clientY - e.target.offsetTop
+        let ripples = document.createElement("span")
+        ripples.style.left = x + "px"
+        ripples.style.top = y + "px"
+        this.appendChild(ripples)
+
+        setTimeout(() => {
+            ripples.remove()
+        }, 1000)
+    })
+})
 
 allClearButton.addEventListener("click", () => {
     calculator.clear()

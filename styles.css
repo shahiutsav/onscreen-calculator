@@ -41,6 +41,7 @@ body {
 }
 
 button {
+    overflow: hidden;
     margin: auto;
     font-size: 18px;
     color: #c8d6e5;
@@ -50,6 +51,28 @@ button {
     height: 70px;
     width: 70px;
     transition: all 0.8s ease;
+}
+
+span {
+    position: absolute;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
 }
 
 .all-clear {
@@ -79,7 +102,7 @@ button {
 button:hover {
     cursor: pointer;
     transition: all 0.2s ease;
-    background-color: #fff;
+    background-color: #ced6e0;
     color: #2f3640;
     transform: translateY(-5px);
 }
