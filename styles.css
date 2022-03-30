@@ -132,7 +132,7 @@ button:hover {
     width: 100%;
     display: flex;
     padding: 10px;
-    background-color: #ff6348;
+    background: linear-gradient(90deg, #ff4757, #5352ed);
     color: white;
     justify-content: center;
     align-items: center;
