@@ -107,10 +107,17 @@ const calculator = new Calculator(
     currentOperandTextElement
 )
 
+function playAudio() {
+    const audio = document.querySelector("[data-audio]")
+    audio.currentTime = 0
+    audio.play()
+}
+
 buttons.forEach((button) => {
     button.addEventListener("click", function (e) {
         let x = e.clientX - e.target.offsetLeft
         let y = e.clientY - e.target.offsetTop
+
         let ripples = document.createElement("span")
         ripples.style.left = x + "px"
         ripples.style.top = y + "px"
@@ -118,22 +125,25 @@ buttons.forEach((button) => {
 
         setTimeout(() => {
             ripples.remove()
-        }, 1000)
+        }, 500)
     })
 })
 
 allClearButton.addEventListener("click", () => {
+    playAudio()
     calculator.clear()
     calculator.updateDisplay()
 })
 
 deleteButton.addEventListener("click", () => {
+    playAudio()
     calculator.delete()
     calculator.updateDisplay()
 })
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
+        playAudio()
         calculator.appendNumber(button.innerText)
         calculator.updateDisplay()
     })
@@ -141,20 +151,22 @@ numberButtons.forEach((button) => {
 
 operationButtons.forEach((button) => {
     button.addEventListener("click", () => {
+        playAudio()
         calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
     })
 })
 
 equalsButton.addEventListener("click", () => {
+    playAudio()
     calculator.compute()
     calculator.updateDisplay()
 })
 
 window.addEventListener("keydown", (e) => {
-    console.log(e.key)
     let keyName = e.key
     if (keyName === "Backspace") {
+        playAudio()
         calculator.delete()
         calculator.updateDisplay()
     } else if (
@@ -169,13 +181,16 @@ window.addEventListener("keydown", (e) => {
         if (keyName === "/") {
             keyName = "÷"
         }
+        playAudio()
         calculator.chooseOperation(keyName)
         calculator.updateDisplay()
     } else if (keyName === "Enter") {
+        playAudio()
         calculator.compute()
         calculator.updateDisplay()
     } else {
         if (isNaN(keyName) && keyName != ".") return
+        playAudio()
         calculator.appendNumber(keyName)
         calculator.updateDisplay()
     }
